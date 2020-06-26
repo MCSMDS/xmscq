@@ -1,0 +1,32 @@
+name: Flutter
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-ios:
+    name: Build iOS
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: git clone https://github.com/flutter/flutter.git -b stable --depth 1
+    - run: export PATH="$PATH:`pwd`/flutter/bin"
+    - run: flutter build ios --no-codesign
+
+  build-apk:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: git clone https://github.com/flutter/flutter.git -b stable --depth 1
+    - run: export PATH="$PATH:`pwd`/flutter/bin"
+    - run: flutter build apk
+
+    #- name: Upload APK
+    #  uses: actions/upload-artifact@master
+    #  with:
+    #    name: apk-build
+    #    path: build/app/outputs/apk/release
