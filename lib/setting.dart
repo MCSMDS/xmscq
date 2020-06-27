@@ -14,13 +14,13 @@ class _Setting extends State {
   double sliderValue = 1;
 
   void sets(String x, String y) => prefs.setString(x, y);
-  String gets(String x) => prefs.getString(x);
+  String gets(String x) => prefs.getString(x) ?? '';
 
   void setb(String x, bool y) => prefs.setBool(x, y);
-  bool getb(String x) => prefs.getBool(x);
+  bool getb(String x) => prefs.getBool(x) ?? false;
 
   void setd(String x, double y) => prefs.setDouble(x, y);
-  double getd(String x) => prefs.getDouble(x);
+  double getd(String x) => prefs.getDouble(x) ?? 1;
 
   Future init() async {}
 

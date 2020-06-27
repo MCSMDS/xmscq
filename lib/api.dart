@@ -3,9 +3,9 @@ import 'dart:math';
 random(int min, int max) => new Random().nextInt(max - min + 1) + min;
 
 Future<String> generate(prefs) async {
-  String gets(String x) => prefs.getString(x);
-  bool getb(String x) => prefs.getBool(x);
-  double getd(String x) => prefs.getDouble(x);
+  String gets(String x) => prefs.getString(x) ?? '';
+  bool getb(String x) => prefs.getBool(x) ?? false;
+  double getd(String x) => prefs.getDouble(x) ?? 1;
 
   List<String> posts = [
     gets("姿势1"),
