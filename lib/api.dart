@@ -18,7 +18,7 @@ Future<String> generate(prefs) async {
     gets("姿势8")
   ];
   posts.removeWhere((element) => element == "");
-  String post = posts[random(0, posts.length)];
+  String post = posts[random(0, posts.length - 1)];
 
   List<String> tools = [
     gets("工具1"),
@@ -29,7 +29,7 @@ Future<String> generate(prefs) async {
     gets("工具6")
   ];
   tools.removeWhere((element) => element == "");
-  String tool = tools[random(0, tools.length)];
+  String tool = tools[random(0, tools.length - 1)];
 
   List<bool> mode = [
     getb("肛罚"),
@@ -50,7 +50,13 @@ Future<String> generate(prefs) async {
       break;
   }
 
-  String ret = post + '姿势， 用' + tool + '打屁股' + i.toString() + '下';
+  String ret = post +
+      '姿势， 用' +
+      tool +
+      '打屁股' +
+      i.toString() +
+      '下' +
+      prefs.getString("姿势2");
 
   var ii = random(1, 100);
   if (ii > 80 && mode[2]) {
