@@ -30,6 +30,7 @@ class _Main extends State {
         title: Text('实践项目生成器'),
         actions: <Widget>[
           PopupMenuButton<Menu>(
+            tooltip: "选项",
             onSelected: (Menu result) {
               switch (result) {
                 case Menu.setting:

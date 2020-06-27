@@ -48,6 +48,11 @@ class _Setting extends State {
     return Scaffold(
       appBar: AppBar(
         title: Text('设置'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          tooltip: "返回",
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: FutureBuilder(
         future: init(),
