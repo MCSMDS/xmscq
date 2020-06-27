@@ -3,9 +3,9 @@ import 'dart:math';
 random(int min, int max) => new Random().nextInt(max - min + 1) + min;
 
 Future<String> generate(prefs) async {
-  String gets(String x) => prefs.getString(x) ?? '';
-  bool getb(String x) => prefs.getBool(x) ?? false;
-  double getd(String x) => prefs.getDouble(x) ?? 1;
+  String gets(String x) => prefs.getString(x);
+  bool getb(String x) => prefs.getBool(x);
+  double getd(String x) => prefs.getDouble(x);
 
   List<String> posts = [
     gets("姿势1"),
@@ -50,13 +50,7 @@ Future<String> generate(prefs) async {
       break;
   }
 
-  String ret = post +
-      '姿势， 用' +
-      tool +
-      '打屁股' +
-      i.toString() +
-      '下' +
-      prefs.getString("姿势2");
+  String ret = post + '姿势， 用' + tool + '打屁股' + i.toString() + '下';
 
   var ii = random(1, 100);
   if (ii > 80 && mode[2]) {
