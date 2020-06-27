@@ -24,8 +24,7 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        tag: v1.0
-        commit: master
+        tag: ${{ secrets.GITHUB_RUN_NUMBER }}
         artifacts: "Runner.ipa"
         token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -44,7 +43,6 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        tag: v1.0
-        commit: master
+        tag: ${{ secrets.GITHUB_RUN_NUMBER }}
         artifacts: app-release.apk"
         token: ${{ secrets.GITHUB_TOKEN }}
